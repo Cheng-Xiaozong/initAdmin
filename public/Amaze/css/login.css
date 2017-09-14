@@ -45,7 +45,6 @@ input:last-child{
 .am-alert-danger{
     position: fixed;
     width: 100%;
-    top:-46px;
     left: 0;
 }
 .rm{
@@ -76,4 +75,22 @@ fieldset p{
     .main_part{
     margin:20% auto auto;
 }
+}
+
+.login-box{
+
+}
+
+.login-box span{
+ color:#0e90d2;cursor: pointer;
+}
+
+.login-box a:nth-child(1)
+{
+    float: left;
+}
+
+.login-box a:nth-child(2)
+{
+    float: right;
 }

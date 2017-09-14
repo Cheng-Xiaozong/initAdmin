@@ -10,15 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@index');
+Route::any('/login', 'User\UserController@login');
+Route::any('/register', 'User\UserController@register');
+Route::post('/getElementByPid', 'Area\AreaInfoController@getElementByPid');
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('/home', 'HomeController@home');
+    Route::get('/logout', 'User\UserController@logout');
 });
 
-/*Route::auth();*/
-
-Route::get('/home', 'HomeController@index');
-
-Route::any('/login', 'User\UserController@login');
 
 

@@ -5,21 +5,19 @@
 @section('content')
     <div class="am-g main_part">
         <div class="am-u-sm-centered" style="width:50%">
-            <h1><span>保弄经销商</span>后台管理系统</h1>
-            <form class="am-form" action="{{ url('/login') }}" method="post">
+            <h1><span>保农经销商</span>后台管理系统</h1>
+            <form class="am-form" action="{{ url('/login') }}" method="post" data-am-validator>
                 {{ csrf_field() }}
                 <fieldset class="am-form-set">
-                    <input type="email" placeholder="手机" name="email" value="{{ old('email') }}">
-                    @if ($errors->has('email'))
-                        <p>{{ $errors->first('email') }}</p>
-                    @endif
-                    <input type="password" placeholder="验证码" name="password">
-                    @if ($errors->has('password'))
-                        <p>{{ $errors->first('password') }}</p>
-                    @endif
+                    <input type="text" placeholder="手机" name="data[phone]" value=""  pattern="^1((3|5|8){1}\d{1}|70)\d{8}$" required>
+                    <input type="text" placeholder="验证码" name="data[captcha]" required>
+                    <p class="login-box"> <span class="captcha" href="javascript:;">点击发送验证码</span> <a href="{{url('/register')}}">还没有管理员帐号？立即注册</a> </p>
                 </fieldset>
                 <button type="submit" class="am-btn am-btn-primary am-btn-block">登录</button>
             </form>
         </div>
     </div>
+@endsection
+@section('javascript')
+    <script src="{{asset('Amaze/js/login.js')}}"></script>
 @endsection

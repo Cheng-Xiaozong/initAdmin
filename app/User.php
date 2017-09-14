@@ -2,29 +2,22 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    const STATUS_ENABLE = 0;    //状态(启用)
+    const STATUS_DISABLE = 1;    //状态(禁用)
+
     protected $fillable = [
-        'name', 'email', 'password','china_id',
+        'name','china_id',
         'store_name','phone','province','city',
         'county','address','address_details',
         'status','user_type','bank','bank_name',
         'bank_number'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
-        'password', 'remember_token',
+       /* 'password', 'remember_token',*/
     ];
 }
